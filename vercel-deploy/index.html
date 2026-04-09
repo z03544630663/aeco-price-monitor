@@ -3,14 +3,161 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AECO 天然气价格监测工具</title>
-    <link rel="stylesheet" href="/static/styles.css" />
-    <script src="/static/vendor/react.development.js"></script>
-    <script src="/static/vendor/react-dom.development.js"></script>
-    <script src="/static/vendor/babel.min.js"></script>
+    <title>AECO 天然气价格监测</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: #0D0D0D;
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .container { max-width: 600px; width: 100%; }
+      .header { text-align: center; margin-bottom: 40px; }
+      .header h1 { font-size: 28px; font-weight: 600; margin-bottom: 8px; }
+      .header p { color: #888; font-size: 14px; }
+      .card {
+        background: #1A1A1A;
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 20px;
+        border: 1px solid #333;
+      }
+      .card-label {
+        font-size: 13px;
+        color: #888;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .price {
+        font-size: 48px;
+        font-weight: 700;
+        color: #1B3A2B;
+      }
+      .unit { font-size: 18px; color: #888; margin-left: 8px; }
+      .meta {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #333;
+        font-size: 13px;
+        color: #888;
+      }
+      .meta-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+      .status {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .status-normal { background: #1B3A2B; color: #fff; }
+      .footer { text-align: center; margin-top: 40px; color: #666; font-size: 12px; }
+      .update-badge {
+        background: #1B3A2B;
+        color: #fff;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        display: inline-block;
+        margin-top: 10px;
+      }
+      .real-data {
+        background: linear-gradient(135deg, #1B3A2B 0%, #2D5A3D 100%);
+        border: 1px solid #3D7A5D;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 15px;
+      }
+      .stat-box {
+        background: #0D0D0D;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+      }
+      .stat-value { font-size: 24px; font-weight: 600; color: #fff; }
+      .stat-label { font-size: 12px; color: #666; margin-top: 4px; }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="text/babel" src="/static/app.jsx"></script>
+    <div class="container">
+      <div class="header">
+        <h1>⚡ AECO 天然气价格监测</h1>
+        <p>LinkMine · 能源驱动型计算基础设施</p>
+        <span class="update-badge">数据已更新：2026-04-07</span>
+      </div>
+
+      <div class="card real-data">
+        <div class="card-label">最新价格（真实数据）</div>
+        <div class="price">
+          1.360
+          <span class="unit">CAD/GJ</span>
+        </div>
+        <div class="meta">
+          <div class="meta-row">
+            <span>交易日期</span>
+            <span>2026-04-07</span>
+          </div>
+          <div class="meta-row">
+            <span>价格中心</span>
+            <span>AECO-C</span>
+          </div>
+          <div class="meta-row">
+            <span>数据来源</span>
+            <span>Gas Alberta Public</span>
+          </div>
+          <div class="meta-row">
+            <span>状态</span>
+            <span class="status status-normal">正常</span>
+          </div>
+          <div class="meta-row">
+            <span>更新时间</span>
+            <span>2026-04-09 07:26</span>
+          </div>
+        </div>
+        
+        <div class="stats">
+          <div class="stat-box">
+            <div class="stat-value">38</div>
+            <div class="stat-label">历史数据 (条)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value">1.686</div>
+            <div class="stat-label">30 日均价 (CAD/GJ)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">最近抓取任务</div>
+        <div class="meta">
+          <div class="meta-row">
+            <span>任务名称</span>
+            <span>daily_fetch</span>
+          </div>
+          <div class="meta-row">
+            <span>运行时间</span>
+            <span>2026-04-09 07:26</span>
+          </div>
+          <div class="meta-row">
+            <span>结果</span>
+            <span class="status status-normal">success</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        数据源：Gas Alberta Public · 每日自动更新
+        <br/>
+        <span style="color:#555">GitHub Actions + Vercel 自动部署</span>
+      </div>
+    </div>
   </body>
-  </html>
+</html>

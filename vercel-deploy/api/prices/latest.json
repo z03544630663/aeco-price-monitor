@@ -1,43 +1,44 @@
 {
   "item": {
-    "trade_date": "2026-04-09",
+    "trade_date": "2026-04-07",
     "hub": "AECO-C",
-    "price_value": 1.731,
+    "price_value": 1.36,
     "price_unit": "CAD/GJ",
-    "source_key": "mock_fallback",
-    "source_name": "Mock Fallback",
-    "source_url": "",
-    "fetched_at": "2026-04-09T06:07:45.624437+00:00",
-    "status": "mock_fallback",
-    "is_real_data": false,
-    "data_kind": "mock",
-    "checksum": "d82af3540ba9acfb619eeddadff4896b3dfb5a6f607e9f83ee3aa52116bf4390"
+    "source_key": "gas_alberta_public",
+    "source_name": "Gas Alberta Public",
+    "source_url": "https://www.gasalberta.com/actions/charts/default?id=aeco_ng_current",
+    "fetched_at": "2026-04-09T07:26:13.964797+00:00",
+    "status": "normal",
+    "is_real_data": true,
+    "data_kind": "real",
+    "checksum": "46fff0f726dead3bb2f55d9901cab5ccbe33380895478a22a266dc6554570af6"
   },
   "summary": {
     "latest": {
-      "trade_date": "2026-04-09",
+      "trade_date": "2026-04-07",
       "hub": "AECO-C",
-      "price_value": 1.731,
+      "price_value": 1.36,
       "price_unit": "CAD/GJ",
-      "source_key": "mock_fallback",
-      "source_name": "Mock Fallback",
-      "source_url": "",
-      "fetched_at": "2026-04-09T06:07:45.624437+00:00",
-      "status": "mock_fallback",
-      "is_real_data": false,
-      "data_kind": "mock",
-      "checksum": "d82af3540ba9acfb619eeddadff4896b3dfb5a6f607e9f83ee3aa52116bf4390"
+      "source_key": "gas_alberta_public",
+      "source_name": "Gas Alberta Public",
+      "source_url": "https://www.gasalberta.com/actions/charts/default?id=aeco_ng_current",
+      "fetched_at": "2026-04-09T07:26:13.964797+00:00",
+      "status": "normal",
+      "is_real_data": true,
+      "data_kind": "real",
+      "checksum": "46fff0f726dead3bb2f55d9901cab5ccbe33380895478a22a266dc6554570af6"
     },
     "retention_policy": "forever",
-    "archive_total": 64,
-    "canonical_total": 0,
+    "archive_total": 38,
+    "canonical_total": 38,
+    "avg_30d": 1.686,
     "last_job": {
       "job_name": "daily_fetch",
       "source_name": "Gas Alberta Public",
       "source_key": "gas_alberta_public",
-      "run_at": "2026-04-09T06:07:45.626074+00:00",
+      "run_at": "2026-04-09T07:26:16.067047+00:00",
       "result": "success",
-      "message": "Fetched 64 records."
+      "message": "Fetched 38 real records."
     }
   }
 }

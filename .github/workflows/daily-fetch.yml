@@ -2,7 +2,7 @@ name: Daily Price Fetch
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天 00:00 UTC = 08:00 北京时间
+    - cron: '30 7 * * *'  # 每天 07:30 UTC = 15:30 北京时间 (确保 AECO 数据已发布)
   workflow_dispatch:     # 支持手动触发
 
 jobs:
@@ -16,16 +16,10 @@ jobs:
         with:
           python-version: '3.11'
       
-      - name: Install dependencies
-        run: pip install requests
-      
-      - name: Create data directory
-        run: mkdir -p vercel-deploy/api/prices vercel-deploy/api/jobs
-      
-      - name: Fetch prices
-        env:
-          PYTHONPATH: .
-        run: python scripts/fetch_prices.py
+      - name: Fetch prices from Gas Alberta
+        run: |
+          cd scripts
+          python3 auto_fetch.py
       
       - name: Commit and push if changed
         run: |

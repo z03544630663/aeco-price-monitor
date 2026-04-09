@@ -1,0 +1,40 @@
+name: Daily Price Fetch
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 00:00 UTC = 08:00 北京时间
+  workflow_dispatch:     # 支持手动触发
+
+jobs:
+  fetch-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install requests
+      
+      - name: Create data directory
+        run: mkdir -p vercel-deploy/api/prices vercel-deploy/api/jobs
+      
+      - name: Fetch prices
+        env:
+          PYTHONPATH: .
+        run: python scripts/fetch_prices.py
+      
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add vercel-deploy/
+          if ! git diff --staged --quiet; then
+            git commit -m "Daily price update: $(date -u)"
+            git push
+          else
+            echo "No changes to commit"
+          fi

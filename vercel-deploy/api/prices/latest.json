@@ -1,0 +1,43 @@
+{
+  "item": {
+    "trade_date": "2026-04-09",
+    "hub": "AECO-C",
+    "price_value": 1.731,
+    "price_unit": "CAD/GJ",
+    "source_key": "mock_fallback",
+    "source_name": "Mock Fallback",
+    "source_url": "",
+    "fetched_at": "2026-04-09T06:07:45.624437+00:00",
+    "status": "mock_fallback",
+    "is_real_data": false,
+    "data_kind": "mock",
+    "checksum": "d82af3540ba9acfb619eeddadff4896b3dfb5a6f607e9f83ee3aa52116bf4390"
+  },
+  "summary": {
+    "latest": {
+      "trade_date": "2026-04-09",
+      "hub": "AECO-C",
+      "price_value": 1.731,
+      "price_unit": "CAD/GJ",
+      "source_key": "mock_fallback",
+      "source_name": "Mock Fallback",
+      "source_url": "",
+      "fetched_at": "2026-04-09T06:07:45.624437+00:00",
+      "status": "mock_fallback",
+      "is_real_data": false,
+      "data_kind": "mock",
+      "checksum": "d82af3540ba9acfb619eeddadff4896b3dfb5a6f607e9f83ee3aa52116bf4390"
+    },
+    "retention_policy": "forever",
+    "archive_total": 64,
+    "canonical_total": 0,
+    "last_job": {
+      "job_name": "daily_fetch",
+      "source_name": "Gas Alberta Public",
+      "source_key": "gas_alberta_public",
+      "run_at": "2026-04-09T06:07:45.626074+00:00",
+      "result": "success",
+      "message": "Fetched 64 records."
+    }
+  }
+}

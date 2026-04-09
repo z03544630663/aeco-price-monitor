@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/prices/latest",
+      "dest": "/api/prices/latest.json"
+    },
+    {
+      "src": "/api/prices/history",
+      "dest": "/api/prices/history.json"
+    },
+    {
+      "src": "/api/settings",
+      "dest": "/api/settings.json"
+    },
+    {
+      "src": "/api/jobs/logs",
+      "dest": "/api/jobs/logs.json"
+    },
+    {
+      "src": "/api/alerts",
+      "dest": "/api/alerts.json"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

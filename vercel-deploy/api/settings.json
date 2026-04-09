@@ -1,0 +1,10 @@
+{
+  "primary_source": "gas_alberta_public",
+  "backup_source": "mock_fallback",
+  "run_time": "08:00",
+  "diff_threshold_percent": 3.0,
+  "retention_policy": "forever",
+  "enable_validation": false,
+  "enable_alert": true,
+  "enable_archive": true
+}

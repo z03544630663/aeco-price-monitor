@@ -2,7 +2,7 @@ name: Daily Price Fetch
 
 on:
   schedule:
-    - cron: '30 7 * * *'  # 每天 07:30 UTC = 15:30 北京时间 (确保 AECO 数据已发布)
+    - cron: '30 7 * * *'  # 每天 07:30 UTC = 15:30 北京时间
   workflow_dispatch:     # 支持手动触发
 
 jobs:
@@ -10,11 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
       
       - name: Fetch prices from Gas Alberta
         run: |
@@ -23,8 +30,6 @@ jobs:
       
       - name: Commit and push if changed
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add vercel-deploy/
           if ! git diff --staged --quiet; then
             git commit -m "Daily price update: $(date -u)"
